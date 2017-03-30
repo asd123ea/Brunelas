@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard professores</title>
+    <meta name="application-name" content="Dashboard professores">
+    <meta name="description" content="">
+    <meta name="author" content="Bruno e Ian">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/grid.css" />
+    <style>
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+    <table id="records_table"></table>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
+
+ <script>
+
+var newList = [];
+var url = "http://localhost:52808/Services/VisionBiService.svc/GetTestBruno";
+
+$.ajax({
+      method: "GET",
+      url: url,
+      headers: {
+          Accept: "application/json; charset=utf-8",
+          "Content-Type": "application/json; charset=utf-8"
+    }
+})
+.done(autenticarResponse);
+
+
+function autenticarResponse(response) {
+    if (response) {
+
+      for (var i = 0; i <= response.length -1; i++) {
+        if (containsObject(response[i].fk_city, newList)){
+            var item = response[i];
+
+            for (var j = 0; j <= newList.length -1; j++) {
+                if (newList[j].fk_city == item.fk_city) {
+                  newList[j].vl_quantity += parseInt(item.vl_quantity);
+                  newList[j].fk_provider += 1;
+                  newList[j].fk_industry += 1;
+                }
+            }
+
+        }else {
+          var item = {
+              "fk_city": response[i].fk_city,
+              "vl_quantity": parseInt(response[i].vl_quantity),
+              "fk_provider": 1,
+              "fk_industry": 1
+            };
+
+          newList.push(item);
+        }
+      }
+
+      for (var c = 0; c <= newList.length -1; c++) {
+                var tr = document.createElement('tr');
+
+                var tdCityEl = document.createElement('td');
+                var nodeCityEl = document.createTextNode(newList[c].fk_city);
+                tdCityEl.appendChild(nodeCityEl);
+
+                var tdQuantityEl = document.createElement('td');
+                var nodeQuantityEl = document.createTextNode(newList[c].vl_quantity);
+                tdQuantityEl.appendChild(nodeQuantityEl);
+
+                var tdProviderEl = document.createElement('td');
+                var nodeProviderEl = document.createTextNode(newList[c].fk_provider);
+                tdProviderEl.appendChild(nodeProviderEl);
+
+                var tdIndustryEl = document.createElement('td');
+                var nodeIndustryEl = document.createTextNode(newList[c].fk_industry);
+                tdIndustryEl.appendChild(nodeIndustryEl);
+
+                var tableEl = document.getElementById('records_table');
+                tr.appendChild(tdCityEl);
+                tr.appendChild(tdQuantityEl);
+                tr.appendChild(tdProviderEl);
+                tr.appendChild(tdIndustryEl);
+                tableEl.appendChild(tr);
+          }
+      } 
+}
+
+function containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i].fk_city === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+
+</script>

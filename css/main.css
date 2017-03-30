@@ -1,0 +1,237 @@
+
+
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,em,img,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,article,footer,header,nav,section,main{margin:0;padding:0;border:0;vertical-align:baseline;}
+
+/*
+Color Palette:
+    main: #011f4b
+    secondary: #b3cde0
+    links: #03396c
+    hover: #005b96
+    other: #6497b1
+*/
+
+body {
+    margin: 0 auto;       
+    font-weight: 300;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.introducao {
+    background: url('../images/bg.jpg') no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 380px;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.introducao h1 {
+    font-size: 48px;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+blockquote {
+    border: none;
+}
+
+.quote-externo {
+    max-width: 320px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.quote-externo p {
+    font-style: italic;
+
+}
+
+.quote-externo p:before, .quote-externo p:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #fff;
+    margin: 14px auto 10px auto;
+}
+
+.ranking {
+    padding: 60px 0 !important;
+}
+
+.ranking h2 {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.subtitulo:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #000;
+    margin: 8px auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.produtos_lista li {
+    background: #fec63e;
+    text-align: center;
+}
+
+.produtos_lista li img{
+    width: 200px;
+    border-radius: 50%;
+}
+
+.produtos_icone {
+    background: #000;
+    padding: 20px;
+}
+
+.produtos_lista li h3 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-top: 20px;
+}
+
+.produtos_lista li h3:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #000;
+    margin: 2px auto;
+}
+
+.produtos_lista li p {
+    padding: 10px 20px 20px 20px;
+}
+
+.view-members {
+    padding-top: 40px;
+    text-align: center;
+    clear: both;
+}
+
+.view-members a {
+    padding: 15px;
+    border-radius: 15px;
+    background: #FFC107;
+    color: #000000;
+    text-decoration: none;
+    box-shadow: inset 0 -5px 0 0 rgba(0, 0, 0, 0.15);
+}
+
+code {
+    font-weight: 300;
+    font-size: 0.8em;
+    font-family: Liberation Mono, Consolas, Monaco, Lucida Console, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+}
+
+header, footer {
+	display: block;
+    margin-bottom: 1%;
+}
+
+header {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+footer {
+	margin-bottom: 0;
+    padding: 25px 15px;
+	text-align: center;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+footer p {
+    line-height: 1.3em;
+}
+
+footer code {
+    font-size: 1em;
+}
+
+
+/*professores*/
+.introducao-professores {
+    background: url('../images/bg.jpg') no-repeat center;
+    background-size: cover;
+    height: 380px;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.prof-grid img {
+    width: 100%;
+    height: 300px;
+}
+
+.prof-list{
+    padding: 0;
+}
+
+
+/* Formataçãode imagens com legendas*/
+figure.foto-legenda {
+    position: relative;
+    //border: 8px solid #ffffff;
+    //box-shadow: 1px 1px 4px black;
+}
+
+figure.foto-legenda figcaption{
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    background-color: rgba(0,0,0,.4);
+    color: #ffffff;
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: opacity 1s;
+}
+
+figure.foto-legenda:hover figcaption{
+    opacity:1;
+    
+}
